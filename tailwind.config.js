@@ -7,6 +7,7 @@ export default {
     extend: {
       colors: {
         cream: "#FDFAEB",
+        grey: "#736A7F",
       }
     },
   },
