@@ -1,4 +1,5 @@
 import ImageProduct from './../../assets/images/product_image.png'
+import ProductDesc from '../../components/product/product-desc'
 
 const ProductPage = () => {
   return (
@@ -7,13 +8,7 @@ const ProductPage = () => {
       <div className='flex flex-col w-2/6 space-y-11'>
         <h1 className='text-6xl font-bold'> Jaket Ngab </h1>
         <h2 className='text-3xl font-bold'> Rp 35.000</h2>
-        <p>
-          XL
-          <br/>
-          Panjang : 58cm
-          <br/>
-          Lebar : 58cm
-        </p>
+        <ProductDesc/>
         <div className='flex flex-col h-32 space-y-4 font-bold'>
           <button className='bg-cream h-full text-grey'>
             TAMBAHKAN KE KERANJANG
