@@ -7,7 +7,6 @@
   </p>
 </div>
 
-> composed to fulfill Finplan Internship Test
 
 
 <details>

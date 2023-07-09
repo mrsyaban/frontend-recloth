@@ -1,4 +1,3 @@
-import Navbar from "../../components/common/navbar";
 import ProductItem from "../../components/homepage/product-item";
 
 const Homepage = () => {
