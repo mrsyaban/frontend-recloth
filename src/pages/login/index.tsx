@@ -1,41 +1,23 @@
-import { useState } from "react";
-
-import Profile from "./../../assets/user_icon.svg";
-import Lock from "./../../assets/lock_icon.svg";
+import { Link } from "react-router-dom";
+import InputField from "../../components/loginpage/InputField";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
   return (
-    <div className="flex bg-grey h-screen">
-      <div className="flex flex-col bg-cream w-[60vh] self-center mx-auto p-10 rounded-md space-y-7">
+    <div className="flex flex-col bg-grey h-screen">
+      <div className="flex justify-end mr-16 mt-10 space-x-5">
+        <Link className="text-black self-center round" to="/">
+          HOME
+        </Link>
+        <button className="bg-cream rounded p-3 text-black font-bold">
+          SIGN UP
+        </button>
+      </div>
+      <div className="flex flex-col bg-cream w-[60vh] my-auto mx-auto p-10 rounded-md space-y-10">
         <h1 className="flex font-bold text-black text-3xl self-center">
           Log in to ReCloth
         </h1>
-        <div className="flex flex-col space-y-2">
-          <div className="flex border-[1px] rounded border-black p-2 space-x-2">
-            <img src={Profile} alt="user-icon" className="w-5" />
-            <input
-              placeholder="username"
-              name="password"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full bg-transparent outline-none"
-            />
-          </div>
-          <div className="flex border-[1px] rounded border-black p-2 space-x-2">
-            <img src={Lock} alt="user-icon" className="w-5" />
-            <input
-              placeholder="password"
-              name="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-transparent outline-none"
-            />
-          </div>
-        </div>
+        <InputField/>
         <div className="flex bg-black rounded justify-center py-2 text-cream font-bold">
           L O G I N
         </div>
