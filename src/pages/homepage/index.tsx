@@ -27,7 +27,7 @@ const Homepage = () => {
         'https://reclothserver.azurewebsites.net/api/products/1?limit=5'
       )
       console.log(response.data); // Anda dapat menangani data sesuai kebutuhan Anda di sini
-      await setProducts(response.data);
+      await setProducts(response.data.data);
     } catch (error) {
       console.error(error);
     }
@@ -48,11 +48,6 @@ const Homepage = () => {
           donate_discount={product.donate_discount}
         />
       ))}
-      {/* <ProductItem/>
-      <ProductItem/>
-      <ProductItem/>
-      <ProductItem/>
-      <ProductItem/> */}
     </div>
   );
 }
