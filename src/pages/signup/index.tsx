@@ -1,7 +1,17 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import InputField from "../../components/signup/input-field";
+import Register from "../../components/signup/register";
 
 const SignupPage = () => {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const signUp = async () => {
+    const item = { email, username, password };
+    console.warn(item);
+  };
+
   return (
     <div className="flex flex-col bg-grey h-screen">
       <div className="flex justify-end mr-16 mt-10 space-x-5">
@@ -16,10 +26,20 @@ const SignupPage = () => {
         <h1 className="flex font-bold text-black text-3xl self-center">
           CREATE ACCOUNT
         </h1>
-        <InputField />
-        <div className="flex bg-black rounded justify-center py-2 text-cream font-bold">
+        <Register
+          email={email}
+          username={username}
+          password={password}
+          setEmail={setEmail}
+          setUsername={setUsername}
+          setPassword={setPassword}
+        />
+        <button
+          onClick={signUp}
+          className="flex bg-black rounded justify-center py-2 text-cream font-bold"
+        >
           S I G N &nbsp; U P
-        </div>
+        </button>
       </div>
     </div>
   );

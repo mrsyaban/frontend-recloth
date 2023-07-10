@@ -1,13 +1,26 @@
-import { useState } from "react";
 
 import Profile from "./../../../assets/user_icon.svg";
 import Lock from "./../../../assets/lock_icon.svg";
 import Mail from "./../../../assets/mail_icon.svg";
 
-const InputField = () => {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+interface RegisterProps {
+  email: string;
+  username: string;
+  password: string;
+  setEmail: (value: string) => void;
+  setUsername: (value: string) => void;
+  setPassword: (value: string) => void;
+}
+
+const Register = (props: RegisterProps) => {
+  const {
+    email,
+    username,
+    password,
+    setEmail,
+    setUsername,
+    setPassword
+  } = props;
 
   return (
     <div className="flex flex-col space-y-5">
@@ -47,4 +60,4 @@ const InputField = () => {
   );
 };
 
-export default InputField;
+export default Register;

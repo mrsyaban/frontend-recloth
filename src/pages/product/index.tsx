@@ -4,9 +4,9 @@ import ProductDesc from "../../components/product/product-desc";
 
 const ProductPage = () => {
   return (
-    <div className="flex px-96 pt-16 justify-between">
-      <img src={ImageProduct} alt="product image" className="w-2/6 h-80" />
-      <div className="flex flex-col w-2/6 space-y-11">
+    <div className="flex mx-[15%] pt-16 justify-between ">
+      <img src={ImageProduct} alt="product image" className="w-[35%] h-80" />
+      <div className="flex flex-col w-[40%] space-y-11">
 
         {/* seller profile */}
         <div className="flex space-x-4">
