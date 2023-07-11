@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import InputField from "../../components/loginpage/InputField";
+import InputField from "../../components/loginpage/input-field";
 import { useState } from "react";
 import axios from "axios";
 
