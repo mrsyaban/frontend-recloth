@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputField from "../../components/loginpage/InputField";
 import { useState } from "react";
 import axios from "axios";
@@ -6,17 +6,10 @@ import axios from "axios";
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  const printHeaders = (headers) => {
-    for (const [key, value] of Object.entries(headers)) {
-      console.log(`${key}: ${value}`);
-    }
-  };
+  const navigate = useNavigate()
   
   const handleLogin = async() => {
     try {
-      console.log("eee");
-      // axios.defaults.withCredentials=true;
       const response = await axios.post(
         "https://reclothserver.azurewebsites.net/auth/login",
         {
@@ -26,11 +19,7 @@ const LoginPage = () => {
       )
       
       console.log(response.data);
-      console.log(response.headers);
-      printHeaders(response.headers);
-      // Mengakses cookie dari respons
-      const cookie = await response.headers['Set-Cookie'];
-      console.log(cookie);
+      navigate('/')
     } catch (error) {
       console.error(error);
     }
