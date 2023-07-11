@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputField from "../../components/signup/input-field";
 import { useState } from "react";
 import axios from "axios";
@@ -7,6 +7,7 @@ const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSignUp = async () => {
     try {
@@ -17,7 +18,8 @@ const SignupPage = () => {
         balance: 100000,
       })
 
-      console.log(response.data)
+      console.log(response.data);
+      navigate("/login");
     } catch (error) {
       console.error(error);
     }
