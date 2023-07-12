@@ -48,6 +48,7 @@ const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const isLoggedIn = () => {
     const token = localStorage.getItem('token'); // atau gunakan document.cookie untuk membaca cookie
     console.log(token);
@@ -90,9 +91,11 @@ const Navbar = () => {
       <div className='flex fixed bg-white top-0 w-full h-20 items-center px-32 justify-between border-b border-[#929191]'>
         <div className='flex h-20 items-center space-x-12 font-bold'>
           <img src={Logo} alt='' className='h-32'/>
-          <a>Pria</a>
-          <a>Wanita</a>
-          <a>Brands</a>
+          <div className='flex space-x-12 opacity-0 lg:opacity-100'>
+            <a>Men</a>
+            <a>Women</a>
+            <a>Brands</a>
+          </div>
         </div>
         <div className='flex h-20 items-center space-x-12 font-bold'>
           <img src={Search} alt='' className='w-7'/>

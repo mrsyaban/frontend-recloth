@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
-import Love from "./../../../assets/love_icon.svg";
+import { useEffect, useState } from "react";
 
+import Love from "./../../../assets/love_icon.svg";
+import RedLove from "./../../../assets/likes.svg";
 import ImageProduct from "./../../../assets/images/product_image.png";
 
 interface ProductItemProps {
@@ -13,19 +15,27 @@ interface ProductItemProps {
 
 const ProductItem = (props: ProductItemProps) => {
   const { id, size, price, img_url, donate_discount } = props;
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+ 
+  const handleClick = () => {
+    console.log("dfas",isClicked);
+    setIsClicked(!isClicked);
+  };
 
   return (
-    <Link
-      className="flex flex-col bg-cream drop-shadow-md"
-      to={`/product/${id}`}
-    >
-      <div className={`bg-[url(${ImageProduct})]`}>
-        <img src={img_url} alt="image" className="w-full" />
-        <button className="z-10 absolute bottom-0 right-0 pb-3 pr-3">
-          <img src={Love} alt="" className="w-7" />
+    <div className="flex flex-col bg-cream drop-shadow-md min-w-min">
+      <div className={`bg-[url(${ImageProduct})] relative`}>
+        <img src={img_url} alt="image" className="w-full aspect-square" />
+        <button className="z-10 absolute bottom-0 right-0 mb-3 mr-3" onChange={handleClick}>
+          <img
+            src={isClicked ? RedLove : Love}
+            alt="image"
+            className={`w-7 ${isClicked ? "text-red-500" : ""}`}
+            
+          />
         </button>
       </div>
-      <div className="flex px-6 py-2 justify-between">
+      <Link className="flex px-6 py-2 justify-between" to={`/product/${id}`}>
         <div className="flex flex-col">
           Rp {price}
           <br />
@@ -43,8 +53,8 @@ const ProductItem = (props: ProductItemProps) => {
             <div className="text-red-500 bg-red">-{donate_discount * 100}%</div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

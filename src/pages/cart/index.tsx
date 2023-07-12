@@ -5,7 +5,10 @@ import ProfPicture from "./../../assets/images/default_profpic.png";
 import ItemImage from "./../../assets/images/default_item.png";
 
 const CartPage = () => {
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [price, usePrice] = useState<number>(30000);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [disc, setDisc] = useState<number>(0);
   
   return (

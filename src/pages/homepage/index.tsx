@@ -33,7 +33,7 @@ const Homepage = () => {
   };
 
   return (
-    <div className="grid grid-cols-3 px-96 py-32 space-x-5 space-y-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-[80%] mx-auto py-32 space-x-5 space-y-5 min-w-min">
       {products.map((product) => (
         <ProductItem 
           key={product.id}

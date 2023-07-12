@@ -38,11 +38,12 @@ const ProductPage = () => {
 
   useEffect(() => {
     fetchProduct();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
   return (
-    <div className="flex px-96 pt-16 justify-between">
+    <div className="flex px-96 pt-32 justify-between">
       <img src={product?.img_url} alt="product image" className="w-2/6 h-80" />
       <div className="flex flex-col w-2/6 space-y-11">
 
