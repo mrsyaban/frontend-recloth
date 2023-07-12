@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import InputField from "../../components/signup/input-field";
+import InputField from "./../../components/signup/register/index";
 import { useState } from "react";
 import axios from "axios";
 

@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 import Profile from "./../../../assets/user_icon.svg";
 import Lock from "./../../../assets/lock_icon.svg";
