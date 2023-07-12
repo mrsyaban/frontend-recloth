@@ -15,11 +15,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<Homepage />} />
-          <Route path="create" element={<ListItem />} />
           <Route path="product/:id" element={<ProductPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="sell-donate" element={<SellDonate />} />
           <Route path="sell-donate/wearable" element={<Wearable />} />
+          <Route path="sell-donate/wearable/create" element={<ListItem />} />
         </Route>
         <Route path="login" element={<LoginPage />} />
         <Route path="registry" element={<SignupPage />} />
