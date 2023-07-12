@@ -8,7 +8,7 @@ const Wearable = () => {
     <div className="flex flex-col w-[80%]  mx-auto space-y-10 mt-10 mb-10 font-bold text-xl">
     <h1 className="text-3xl ">WEARABLE</h1>
     <div className="flex space-x-10">
-      <Link to='create-product'>
+      <Link to='create'>
         <img src={SellImage} className="w-[450px]" />
       </Link>
       <button>

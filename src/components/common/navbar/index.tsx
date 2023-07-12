@@ -103,7 +103,9 @@ const Navbar = () => {
     <Fragment>
       <div className='flex fixed bg-white top-0 w-full h-20 items-center px-32 justify-between border-b border-[#929191]'>
         <div className='flex h-20 items-center space-x-12 font-bold'>
-          <img src={Logo} alt='' className='h-32'/>
+          <Link to={"/"}>
+            <img src={Logo} alt='' className='h-32'/>
+          </Link>
           <div className='flex space-x-12 opacity-0 lg:opacity-100'>
             <a>Men</a>
             <a>Women</a>
@@ -124,7 +126,7 @@ const Navbar = () => {
         <div className='absolute top-20 right-0 bg-white border border-[#929191]'>
           <ul>
             <li>
-              <Link to={"/sell"}>
+              <Link to={"/sell-donate"}>
                 Sell and Donate
               </Link>
             </li>
