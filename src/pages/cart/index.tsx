@@ -5,7 +5,10 @@ import ProfPicture from "./../../assets/images/default_profpic.png";
 import ItemImage from "./../../assets/images/default_item.png";
 
 const CartPage = () => {
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [price, usePrice] = useState<number>(30000);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [disc, setDisc] = useState<number>(0);
   
   return (
@@ -54,12 +57,12 @@ const CartPage = () => {
           </div>
           <div className="mt-5 flex font-thin justify-between">
             <h3 className="text-xl  text-slate-600">DISCOUNT</h3>
-            Rp {price.toLocaleString("id")}
+            Rp {disc.toLocaleString("id")}
           </div>
           <hr />
           <div className="flex mt-5 justify-between">
             <h3 className="text-xl">ORDER TOTAL</h3>
-            Rp {price.toLocaleString("id")}
+            Rp {((100-disc)*price).toLocaleString("id")}
           </div>
           <div className="flex flex-col mt-10">
             <button className="bg-grey rounded-sm">BUY</button>

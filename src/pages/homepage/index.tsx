@@ -34,15 +34,12 @@ const Homepage = () => {
   };
 
   return (
-    <div className="grid grid-cols-3 px-96 py-32 space-x-5 space-y-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-[80%] mx-auto py-32 space-x-5 space-y-5 min-w-min">
       {products.map((product) => (
         <ProductItem 
           key={product.id}
           id={product.id}
-          title={product.title}
-          description={product.description}
           size={product.size}
-          quantity={product.quantity}
           price={product.price}
           img_url={product.img_url}
           donate_discount={product.donate_discount}
