@@ -1,5 +1,5 @@
 import {Fragment} from 'react';
-import {Outlet} from 'react-router-dom';
+import {Outlet, Link} from 'react-router-dom';
 
 import Logo from './../../../assets/logo.svg';
 import Search from './../../../assets/search_icon.svg';
@@ -13,7 +13,9 @@ const Navbar = () => {
     <Fragment>
       <div className='flex h-20 items-center px-32 justify-between border border-[#929191]'>
         <div className='flex h-20 items-center space-x-12 font-bold'>
+          <Link to='/'>
           <img src={Logo} alt='' className='h-32'/>
+          </Link>
           <a>Pria</a>
           <a>Wanita</a>
           <a>Brands</a>
