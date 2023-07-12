@@ -1,4 +1,3 @@
-import ImageProduct from "./../../assets/images/product_image.png";
 import ProfPicture from "./../../assets/images/default_profpic.png";
 import ProductDesc from "../../components/product/product-desc";
 import { useEffect, useState } from "react";
