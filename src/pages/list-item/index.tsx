@@ -10,9 +10,11 @@ import Quantity from '../../components/list-item/quantity';
 import Price from '../../components/list-item/price';
 import DonationDisc from '../../components/list-item/donation-disc';
 import "./style.css";
+import axios from 'axios';
 
 const ListItem = () => {
-  const [photoPath, setPhotoPath] = useState('');
+  const [photoPaths, setPhotoPaths] = useState<string[]>([]);
+  const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
   const [gender, setGender] = useState('');
   const [category, setCategory] = useState('');
@@ -23,6 +25,25 @@ const ListItem = () => {
   const [price, setPrice] = useState<number>(0);
   const [donationDisc, setDonationDisc] = useState<number>(0);
 
+  const handleList = async () => {
+    try {
+      const response = await axios.post("https://reclothserver.azurewebsites.net/api/product",
+        {
+          title: title,
+          description: desc,
+          quantity: quantity,
+          img_url: photoPaths,
+          donate_discount: donationDisc,
+          // location: location,
+          condition: cond,
+          // owner_name: owner_name
+        },
+      )
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <div className="flex flex-col space-y-10 mt-10 mb-10 mx-96 font-bold text-xl">
       <h1 className="text-3xl">LIST AN ITEM</h1>
@@ -32,9 +53,10 @@ const ListItem = () => {
           type="text"
           className="mt-5 border border-solid border-grey font-thin rounded-sm p-2"
           placeholder="Item name"
+          onChange={(e) => {setTitle(e.target.value)}}
         />
       </div>
-      <Photos photoPath={photoPath} setPhotoPath={setPhotoPath}/>
+      <Photos photoPaths={photoPaths} setPhotoPaths={setPhotoPaths}/>
       <div className="flex flex-col">
         DESCRIPTION
         <textarea
@@ -59,7 +81,7 @@ const ListItem = () => {
           <DonationDisc donationDisc={donationDisc} setDonationDisc={setDonationDisc}/>
         </div>
       </div>
-      <button className='bg-grey text-cream'>
+      <button className='bg-grey text-cream' onClick={handleList}>
         LIST
       </button>
     </div>

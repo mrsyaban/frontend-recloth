@@ -3,8 +3,8 @@ import { ChangeEvent } from "react";
 import AddImage from "./../../../assets/add_media.svg";
 
 interface Props {
-  photoPath: string;
-  setPhotoPath: (value: string) => void;
+  photoPaths: string[];
+  setPhotoPaths: (value: string[]) => void;
 }
 
 const Photos = (props: Props) => {

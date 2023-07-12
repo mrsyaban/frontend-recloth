@@ -48,23 +48,37 @@ const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
-  const isLoggedIn = () => {
-    const token = localStorage.getItem('token'); // atau gunakan document.cookie untuk membaca cookie
-    console.log(token);
-    if (token) {
-      // token JWT tersimpan di dalam localStorage atau cookie, pengguna sudah login
-      return true;
-    } else {
-      // token JWT tidak tersimpan di dalam localStorage atau cookie, pengguna belum login
-      return false;
+  const getCookie = (cookieName: string) => {
+    if (document.cookie.length > 0) {
+        let cookieStart = document.cookie.indexOf(cookieName + '=');
+        if (cookieStart !== -1) {
+            cookieStart = cookieStart + cookieName.length + 1;
+            let cookieEnd = document.cookie.indexOf(';', cookieStart);
+            if (cookieEnd === -1) {
+                cookieEnd = document.cookie.length;
+            }
+            return window.unescape(document.cookie.substring(cookieStart, cookieEnd));
+        }
     }
+    return '';
+  };
+
+  const isLoggedIn = () => { // TODO
+    const token = localStorage.getItem('token'); // atau gunakan document.cookie untuk membaca cookie
+    return true;
+    // if (token) {
+    //   // token JWT tersimpan di dalam localStorage atau cookie, pengguna sudah login
+    //   return true;
+    // } else {
+    //   // token JWT tidak tersimpan di dalam localStorage atau cookie, pengguna belum login
+    //   return false;
+    // }
   }
   
   const handleProfileClick = () => {
-    console.log("ppp");
     // check if user is logged in
-    // if (!isLoggedIn()) {
-    if (false) { // Jangan lupa diubah dengan yang dicomment di atas
+    if (!isLoggedIn()) {
+    // if (false) { // Jangan lupa diubah dengan yang dicomment di atas
       // user is not logged in, redirect to login page
       navigate('/login');
     } else {
@@ -77,6 +91,7 @@ const Navbar = () => {
     try {
     console.log("logging out");
       const response = await axios.post('https://reclothserver.azurewebsites.net/auth/logout');
+      // const response = await axios.post('https://localhost:8080/auth/logout');
       console.log(response.data);
       window.location.reload();
     } catch (error) {
@@ -95,7 +110,10 @@ const Navbar = () => {
         </div>
         <div className='flex h-20 items-center space-x-12 font-bold'>
           <img src={Search} alt='' className='w-7'/>
-          <img src={Cart} alt='' className='w-7'/>
+          <Link to={"/cart"}>
+            <img src={Cart} alt='' className='w-7'/>
+          </Link>
+
           <img src={Favorite} alt='' className='w-7'/>
           <img src={Profile} alt='' className='w-7' onClick={handleProfileClick}/>
         </div>

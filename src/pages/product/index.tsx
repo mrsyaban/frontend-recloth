@@ -27,6 +27,7 @@ const ProductPage = () => {
     try {
       const response = await axios.get(
         `https://reclothserver.azurewebsites.net/api/product/${id}`
+        // `https://localhost:8080/api/product/${id}`
       )
 
       console.log(response.data);
@@ -40,7 +41,9 @@ const ProductPage = () => {
     fetchProduct();
   }, []);
 
+  const handleTransaction = async () => {
 
+  }
   return (
     <div className="flex px-96 pt-16 justify-between">
       <img src={product?.img_url} alt="product image" className="w-2/6 h-80" />
@@ -51,7 +54,7 @@ const ProductPage = () => {
           <img src={ProfPicture} alt="profile" className="h-10 rounded-full" />
           <div className="flex flex-col">
             <div className="font-bold">{product?.owner_name}</div>
-            <div className="text-xs">product?.location</div>
+            <div className="text-xs">{product?.location}</div>
           </div>
         </div>
 
@@ -70,7 +73,9 @@ const ProductPage = () => {
           <button className="bg-cream h-full text-grey">
             TAMBAHKAN KE KERANJANG
           </button>
-          <button className="bg-grey h-full text-cream">DONASI ({(product?.donate_discount ?? 0) * 100}%)</button>
+          <button className="bg-grey h-full text-cream">
+            DONASI ({(product?.donate_discount ?? 0) * 100}%)
+          </button>
         </div>
       </div>
     </div>

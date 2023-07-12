@@ -10,16 +10,24 @@ const LoginPage = () => {
   
   const handleLogin = async() => {
     try {
-      const response = await axios.post(
-        "https://reclothserver.azurewebsites.net/auth/login",
-        {
-          username,
-          password,
-        },
-      )
-      
-      console.log(response.data);
+      const _body = {
+          username: username,
+          password: password,
+      };
+
+      const response = await fetch("https://reclothserver.azurewebsites.net/auth/login", {
+          method: "post",
+          headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Credentials": "true",
+          },
+          body: JSON.stringify(_body),
+          credentials: "include",
+      });
+
+      console.log(response.body);
       navigate('/')
+
     } catch (error) {
       console.error(error);
     }
