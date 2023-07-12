@@ -14,6 +14,8 @@ interface Product {
   price: number;
   condition: string;
   brand: string;
+  owner_name: string;
+  location: string;
   img_url: string;
   donate_discount: number;
 }
@@ -49,8 +51,8 @@ const ProductPage = () => {
         <div className="flex space-x-4">
           <img src={ProfPicture} alt="profile" className="h-10 rounded-full" />
           <div className="flex flex-col">
-            <div className="font-bold">UMKM Dago</div>
-            <div className="text-xs">Bandung</div>
+            <div className="font-bold">{product?.owner_name}</div>
+            <div className="text-xs">product?.location</div>
           </div>
         </div>
 
