@@ -3,25 +3,17 @@ import Profile from "./../../../assets/user_icon.svg";
 import Lock from "./../../../assets/lock_icon.svg";
 import Mail from "./../../../assets/mail_icon.svg";
 
-interface RegisterProps {
-  email: string;
-  username: string;
-  password: string;
-  setEmail: (value: string) => void;
-  setUsername: (value: string) => void;
-  setPassword: (value: string) => void;
+interface SignupInputProps {
+  email: string,
+  username: string,
+  password: string,
+  setEmail: React.Dispatch<React.SetStateAction<string>>,
+  setUsername: React.Dispatch<React.SetStateAction<string>>,
+  setPassword: React.Dispatch<React.SetStateAction<string>>,
 }
-
-const Register = (props: RegisterProps) => {
-  const {
-    email,
-    username,
-    password,
-    setEmail,
-    setUsername,
-    setPassword
-  } = props;
-
+const InputField = (props: SignupInputProps) => {
+  const {email, username, password, setEmail,  setUsername,  setPassword} = props;
+  
   return (
     <div className="flex flex-col space-y-5">
       <div className="flex border-[1px] rounded border-black p-2 pl-4 space-x-4">
@@ -60,4 +52,4 @@ const Register = (props: RegisterProps) => {
   );
 };
 
-export default Register;
+export default InputField;
