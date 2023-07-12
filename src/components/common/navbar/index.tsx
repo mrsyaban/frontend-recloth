@@ -64,7 +64,8 @@ const Navbar = () => {
     console.log("ppp");
     // check if user is logged in
     // if (!isLoggedIn()) {
-    if (false) { // Jangan lupa diubah dengan yang dicomment di atas
+    // eslint-disable-next-line no-constant-condition
+    if (true) { // Jangan lupa diubah dengan yang dicomment di atas
       // user is not logged in, redirect to login page
       navigate('/login');
     } else {
@@ -86,7 +87,7 @@ const Navbar = () => {
 
   return (
     <Fragment>
-      <div className='flex h-20 items-center px-32 justify-between border border-[#929191]'>
+      <div className='flex fixed bg-white top-0 w-full h-20 items-center px-32 justify-between border-b border-[#929191]'>
         <div className='flex h-20 items-center space-x-12 font-bold'>
           <img src={Logo} alt='' className='h-32'/>
           <a>Pria</a>

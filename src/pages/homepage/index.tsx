@@ -38,10 +38,7 @@ const Homepage = () => {
         <ProductItem 
           key={product.id}
           id={product.id}
-          title={product.title}
-          description={product.description}
           size={product.size}
-          quantity={product.quantity}
           price={product.price}
           img_url={product.img_url}
           donate_discount={product.donate_discount}

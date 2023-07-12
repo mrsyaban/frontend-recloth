@@ -54,12 +54,12 @@ const CartPage = () => {
           </div>
           <div className="mt-5 flex font-thin justify-between">
             <h3 className="text-xl  text-slate-600">DISCOUNT</h3>
-            Rp {price.toLocaleString("id")}
+            Rp {disc.toLocaleString("id")}
           </div>
           <hr />
           <div className="flex mt-5 justify-between">
             <h3 className="text-xl">ORDER TOTAL</h3>
-            Rp {price.toLocaleString("id")}
+            Rp {((100-disc)*price).toLocaleString("id")}
           </div>
           <div className="flex flex-col mt-10">
             <button className="bg-grey rounded-sm">BUY</button>
