@@ -1,17 +1,18 @@
 import { useState } from 'react';
 
+import Photos from '../../components/list-item/photos';
 import GenderCategory from '../../components/list-item/gender-category';
 import Category from '../../components/list-item/category';
 import Brand from '../../components/list-item/brand';
 import Condition from '../../components/list-item/condition';
 import Size from '../../components/list-item/size';
-import AddImage from "./../../assets/add_media.svg";
 import Quantity from '../../components/list-item/quantity';
 import Price from '../../components/list-item/price';
 import DonationDisc from '../../components/list-item/donation-disc';
 import "./style.css";
 
 const ListItem = () => {
+  const [photoPath, setPhotoPath] = useState('');
   const [desc, setDesc] = useState('');
   const [gender, setGender] = useState('');
   const [category, setCategory] = useState('');
@@ -33,13 +34,7 @@ const ListItem = () => {
           placeholder="Item name"
         />
       </div>
-      <div className="flex flex-col ">
-        PHOTOS
-        <button className="custom-file-upload mt-5">
-          <img src={AddImage} className="w-10" />
-          <span className="font-thin">Add a photo</span>
-        </button>
-      </div>
+      <Photos photoPath={photoPath} setPhotoPath={setPhotoPath}/>
       <div className="flex flex-col">
         DESCRIPTION
         <textarea
