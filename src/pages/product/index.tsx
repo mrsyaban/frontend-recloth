@@ -2,7 +2,7 @@ import ProfPicture from "./../../assets/images/default_profpic.png";
 import ProductDesc from "../../components/product/product-desc";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 interface Product {
   id: string;
@@ -71,12 +71,14 @@ const ProductPage = () => {
             description = {product?.description ?? ""}          
         />
         <div className="flex flex-col h-32 space-y-4 font-bold">
-          <button className="bg-cream h-full text-grey">
-            TAMBAHKAN KE KERANJANG
-          </button>
-          <button className="bg-grey h-full text-cream">
-            DONASI ({(product?.donate_discount ?? 0) * 100}%)
-          </button>
+          <Link to={"/cart"}>
+            <button className="bg-cream h-full text-grey">
+              TAMBAHKAN KE KERANJANG
+            </button>
+            <button className="bg-grey h-full text-cream">
+              DONASI ({(product?.donate_discount ?? 0) * 100}%)
+            </button>
+          </Link>
         </div>
       </div>
     </div>
