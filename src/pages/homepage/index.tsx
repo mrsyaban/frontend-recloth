@@ -24,7 +24,10 @@ const Homepage = () => {
     try {
       const response = await axios.get(
         'https://reclothserver.azurewebsites.net/api/products/1?limit=100',
-        // 'https://localhost:8080/api/products/1?limit=5'
+        // 'http://localhost:8080/api/products/1?limit=20'
+        {
+          withCredentials: true,
+        }
       )
       console.log(response.data); // Anda dapat menangani data sesuai kebutuhan Anda di sini
       await setProducts(response.data.data);

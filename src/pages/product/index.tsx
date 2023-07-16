@@ -2,7 +2,7 @@ import ProfPicture from "./../../assets/images/default_profpic.png";
 import ProductDesc from "../../components/product/product-desc";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 interface Product {
   id: string;
@@ -22,12 +22,15 @@ interface Product {
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<Product>();
-
+  const navigate = useNavigate();
   const fetchProduct = async () => {
     try {
       const response = await axios.get(
-        `https://reclothserver.azurewebsites.net/api/product/${id}`
-        // `https://localhost:8080/api/product/${id}`
+        `https://reclothserver.azurewebsites.net/api/product/${id}`,
+        // `http://localhost:8080/api/product/${id}`
+        {
+          withCredentials: true,
+        }
       )
 
       console.log(response.data);
@@ -43,7 +46,19 @@ const ProductPage = () => {
   }, []);
 
   const handleTransaction = async () => {
+    console.log("transaction");
+    try {
+      const response = await axios.put("https://reclothserver.azurewebsites.net/api/cart", {
+        withCredentials: true,
+        method: "add",
+        item_id: id
+      })
 
+      console.log(response.data);
+      navigate("/cart");
+    } catch (error) {
+      console.error(error);
+    }
   }
   return (
     <div className="flex px-96 pt-32 justify-between">
@@ -71,14 +86,12 @@ const ProductPage = () => {
             description = {product?.description ?? ""}          
         />
         <div className="flex flex-col h-32 space-y-4 font-bold">
-          <Link to={"/cart"}>
-            <button className="bg-cream h-full text-grey">
-              TAMBAHKAN KE KERANJANG
-            </button>
-            <button className="bg-grey h-full text-cream">
-              DONASI ({(product?.donate_discount ?? 0) * 100}%)
-            </button>
-          </Link>
+          <button onClick={handleTransaction} className="bg-cream h-full text-grey">
+            TAMBAHKAN KE KERANJANG
+          </button>
+          <button onClick={handleTransaction} className="bg-grey h-full text-cream">
+            DONASI ({(product?.donate_discount ?? 0) * 100}%)
+          </button>
         </div>
       </div>
     </div>

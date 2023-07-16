@@ -10,22 +10,29 @@ const LoginPage = () => {
   
   const handleLogin = async() => {
     try {
+      console.log("lll");
       const _body = {
           username: username,
           password: password,
       };
 
       const response = await fetch("https://reclothserver.azurewebsites.net/auth/login", {
+        // const response = await fetch("http://localhost:8080/auth/login", {
           method: "post",
           headers: {
               "Content-Type": "application/json",
               "Access-Control-Allow-Credentials": "true",
           },
           body: JSON.stringify(_body),
-          credentials: "include",
-      });
-
+          credentials: "include",          
+        });
+        
       console.log(response.body);
+
+      // Mendapatkan cookie token dari respons
+      const cookieToken = localStorage.getI;
+      console.log("ppp", document.cookie);
+
       navigate('/')
 
     } catch (error) {

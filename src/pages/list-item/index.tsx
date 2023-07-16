@@ -28,6 +28,7 @@ const ListItem = () => {
   const handleList = async () => {
     try {
       const response = await axios.post("https://reclothserver.azurewebsites.net/api/product",
+      // const response = await axios.post("http://localhost:8080/api/product",
         {
           title: title,
           description: desc,

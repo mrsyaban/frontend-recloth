@@ -12,11 +12,12 @@ const SignupPage = () => {
   const handleSignUp = async () => {
     try {
       const response = await axios.post("https://reclothserver.azurewebsites.net/auth/register", {
-        // const response = await axios.post("https://localhost:8080/auth/register", {
+        // const response = await axios.post("http://localhost:8080/auth/register", {
         email,
         username,
         password,
         balance: 100000,
+        withCredentials: true,
       })
 
       console.log(response.data);
