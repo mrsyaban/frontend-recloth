@@ -24,8 +24,10 @@ const ListItem = () => {
   const [quantity, setQuantity] = useState<number>(1);
   const [price, setPrice] = useState<number>(0);
   const [donationDisc, setDonationDisc] = useState<number>(0);
+  axios.defaults.withCredentials = true;
 
   const handleList = async () => {
+
     try {
       const response = await axios.post("https://reclothserver.azurewebsites.net/api/product",
       // const response = await axios.post("http://localhost:8080/api/product",

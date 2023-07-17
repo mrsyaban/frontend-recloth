@@ -17,6 +17,7 @@ const Homepage = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
+  axios.defaults.withCredentials = true;
 
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -24,7 +25,7 @@ const Homepage = () => {
     try {
       const response = await axios.get(
         'https://reclothserver.azurewebsites.net/api/products/1?limit=100',
-        // 'http://localhost:8080/api/products/1?limit=20'
+        // 'http://localhost:8080/api/products/1?limit=20',
         {
           withCredentials: true,
         }

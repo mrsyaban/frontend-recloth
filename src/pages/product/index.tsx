@@ -23,11 +23,13 @@ const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<Product>();
   const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
+
   const fetchProduct = async () => {
     try {
       const response = await axios.get(
         `https://reclothserver.azurewebsites.net/api/product/${id}`,
-        // `http://localhost:8080/api/product/${id}`
+        // `http://localhost:8080/api/product/${id}`,
         {
           withCredentials: true,
         }
@@ -49,7 +51,8 @@ const ProductPage = () => {
     console.log("transaction");
     try {
       const response = await axios.put("https://reclothserver.azurewebsites.net/api/cart", {
-        withCredentials: true,
+      // const response = await axios.put("https://localhost:8080/api/cart", {
+        // withCredentials: true,
         method: "add",
         item_id: id
       })

@@ -7,6 +7,7 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
+  axios.defaults.withCredentials = true;
   
   const handleLogin = async() => {
     try {

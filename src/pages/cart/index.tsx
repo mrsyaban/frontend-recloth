@@ -22,6 +22,7 @@ interface CartItemProps {
 }
 
 const CartPage = () => {
+  axios.defaults.withCredentials = true;
   const [cartItems, setCartItems] = useState<CartItemProps[]>([]);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
@@ -35,11 +36,11 @@ const CartPage = () => {
   const fetchCartItems = async() => {
     try {
       const response = await axios.get("https://reclothserver.azurewebsites.net/api/cart",
+      // const response = await axios.get("http://localhost:8080/api/cart",
         {
           withCredentials: true,
         }
       );
-      // const response = await axios.get("http://localhost:8080/api/cart");
       console.log(response.data);
       await setCartItems(response.data.data);
     } catch (error) {
@@ -78,9 +79,10 @@ const CartPage = () => {
     try {
       const deleteRequests = selectedItems.map((itemId) => {
         return axios.put("https://reclothserver.azurewebsites.net/api/cart",{
-          withCredentials: true,
-          method: "delete",
-          id: itemId,
+        // return axios.put("https://localhost:8080/api/cart",{
+          // withCredentials: true,
+          method: "del",
+          item_id: itemId,
         });
       });
 

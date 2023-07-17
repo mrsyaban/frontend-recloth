@@ -9,6 +9,7 @@ import Profile from './../../../assets/user_icon.svg';
 import axios from 'axios';
 
 const Navbar = () => {
+  axios.defaults.withCredentials = true;
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
@@ -16,27 +17,27 @@ const Navbar = () => {
   const isLoggedIn = async () => { 
     try {
       const response = await axios.get("https://reclothserver.azurewebsites.net/auth/user-info",
+      // const response = await axios.get("https://localhost:8080/auth/user-info",
         {
           withCredentials: true,
         }
       )
 
       console.log(response.data);
-      if (response.status === 401) {
-        return false;
-      } else {
-        return true;
-      }
+      return true;
     } catch (error) {
-      console.error(error);
+      // console.error(error);
+      return false;
     }
   }
   
-  const handleProfileClick = () => {
+  const handleProfileClick = async () => {
+    const log = await isLoggedIn();
     // check if user is logged in
-    if (!isLoggedIn()) {
+    if (!log) {
       navigate('/login');
     } else {
+      console.log(isLoggedIn());
       // user is logged in, show popup
       setShowPopup(!showPopup);
     }
@@ -46,11 +47,11 @@ const Navbar = () => {
     try {
     console.log("logging out");
       const response = await axios.post('https://reclothserver.azurewebsites.net/auth/logout',
+      // const response = await axios.post('http://localhost:8080/auth/logout',
         {
           withCredentials: true,
         }
       );
-      // const response = await axios.post('http://localhost:8080/auth/logout');
       console.log("response", response.data);
       // window.location.reload();
       navigate('/login');
