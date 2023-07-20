@@ -1,7 +1,5 @@
-import { Checkbox } from "pretty-checkbox-react";
 import { useEffect, useState } from "react";
 
-import ProfPicture from "./../../assets/images/default_profpic.png";
 import { Link } from "react-router-dom";
 import { CartItem } from "../../components/cart/product-item";
 import axios from "axios";
@@ -26,8 +24,6 @@ const CartPage = () => {
   const [cartItems, setCartItems] = useState<CartItemProps[]>([]);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [price, setPrice] = useState(30000);
   const [subTotal, setSubTotal] = useState(0);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [disc, setDisc] = useState(0);
