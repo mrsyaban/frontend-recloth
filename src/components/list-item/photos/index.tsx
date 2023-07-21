@@ -2,12 +2,12 @@ import { ChangeEvent } from "react";
 
 import AddImage from "./../../../assets/add_media.svg";
 
-interface Props {
-  photoPaths: string[];
-  setPhotoPaths: (value: string[]) => void;
-}
+// interface Props {
+//   photoPaths: string[];
+//   setPhotoPaths: (value: string[]) => void;
+// }
 
-const Photos = (props: Props) => {
+const Photos = () => {
   const handleFileUpload = (file: File) => {
     console.log(file);
   };
