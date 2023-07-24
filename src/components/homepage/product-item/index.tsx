@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Love from "./../../../assets/love_icon.svg";
 import RedLove from "./../../../assets/likes.svg";

@@ -31,7 +31,7 @@ const LoginPage = () => {
       console.log(response.body);
 
       // Mendapatkan cookie token dari respons
-      const cookieToken = localStorage.getI;
+      // const cookieToken = localStorage.getI;
       console.log("ppp", document.cookie);
 
       navigate('/')

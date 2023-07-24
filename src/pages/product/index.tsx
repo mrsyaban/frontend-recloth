@@ -2,7 +2,7 @@ import ProfPicture from "./../../assets/images/default_profpic.png";
 import ProductDesc from "../../components/product/product-desc";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 interface Product {
   id: string;
